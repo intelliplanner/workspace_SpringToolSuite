@@ -1,0 +1,31 @@
+eureka:  
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+server:  
+  port: 8761
+spring: 
+  application:
+    name: AMAZON-SERVICE
+  
+  
+#   ${PORT:1111}
+    
+#  server:
+#    enableSelfPreservation: false  
+    
+#    ============
+#    
+#    server:  
+#  port: ${PORT:1111}
+#    
+#eureka:  
+#  instance:
+#    hostname: localhost
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+# 
+# 
+#  server:
+#    enableSelfPreservation: false  

@@ -1,0 +1,57 @@
+server:
+  port: ${PORT:9090}
+  tomcat:
+    max-threads: 200
+    max-connections: 1000
+
+spring:  
+  datasource:
+    initialize-mode: true
+    test-on-borrow: true
+    validation-query: SELECT 1 FROM DUAL
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://172.16.132.24:1433\\sql\\IPPSI_RFID;databaseName=ipssi_ppgcl_dev;
+#    url: jdbc:sqlserver://sql\\IPPSI_RFID:1433;databaseName=ipssi_ppgcl_dev;
+    username: sa
+    password: ppgcl_123
+     
+    dbcp2: 
+      initial-size: 0
+      max-total: 1000
+      pool-prepared-statements: true
+      maxIdle: 10
+      minIdle: 0
+      maxWaitMillis: -1
+      defaultAutoCommit: true
+
+logging:
+  level:
+   org:
+     springframework:
+       jdbc:
+         core: 
+          JdbcTemplate : DEBUG
+management:
+  security:
+    enabled: false
+  endpoints:
+    health:
+      sensitive: false
+      db:
+        enabled:  true
+      defaults:
+        enabled:  true
+      show-details : always
+  
+
+
+spring.jpa.database                     : MYSQL
+spring.jpa.generate-ddl                 : true
+spring.jpa.hibernate.ddl-auto           : update
+spring.jpa.open-in-view                 : false
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+spring.jpa.properties.hibernate.dialect : org.hibernate.dialect.MySQL5Dialect
+spring.jpa.show-sql                     : false
+    
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+      

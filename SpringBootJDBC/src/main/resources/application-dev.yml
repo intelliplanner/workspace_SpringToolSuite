@@ -1,0 +1,33 @@
+server:
+  port: ${PORT:8080}
+  tomcat:
+    max-threads: 200
+    max-connections: 1000
+
+spring:  
+  datasource:
+    initialize-mode: true
+    test-on-borrow: true
+    validation-query: SELECT 1 FROM DUAL
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+
+     
+    dbcp2: 
+      initial-size: 0
+      max-total: 1000
+      pool-prepared-statements: true
+      maxIdle: 10
+      minIdle: 0
+      maxWaitMillis: -1
+      defaultAutoCommit: true
+
+logging:
+  level:
+   org:
+     springframework:
+       jdbc:
+         core: 
+          JdbcTemplate : ERROR

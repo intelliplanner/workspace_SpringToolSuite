@@ -1,0 +1,62 @@
+server:
+  port: ${PORT:9090}
+  tomcat:
+    max-threads: 200
+    max-connections: 1000
+
+spring:  
+  datasource:
+#    url: jdbc:sqlserver://localhost:1400;databaseName=ipssi_cgpl;
+    initialize-mode: true
+    test-on-borrow: true
+    validation-query: SELECT 1 FROM DUAL
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    #    url: jdbc:sqlserver://localhost:1433;databaseName=ipssi_cgpl;
+    #url: jdbc:sqlserver://localhost:1433;databaseName=ipssi_cgpl;
+    #driver-class-name: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://localhost:3306/ipssi_cgpl?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:sqlserver://169.254.179.178:1433;databaseName=ipssi_cgpl;
+    username: root
+    password: root
+    
+    dbcp2: 
+      initial-size: 5
+      max-total: 1000
+      pool-prepared-statements: true
+      maxIdle: 200
+      minIdle: 40
+      maxWaitMillis: -1
+      defaultAutoCommit: true
+
+logging:
+  level:
+   org:
+     springframework:
+       jdbc:
+         core: 
+          JdbcTemplate : DEBUG
+management:
+  security:
+    enabled: false
+  endpoints:
+    health:
+      sensitive: false
+      db:
+        enabled:  true
+      defaults:
+        enabled:  true
+      show-details : always
+  
+
+
+spring.jpa.database                     : MYSQL
+spring.jpa.generate-ddl                 : true
+spring.jpa.hibernate.ddl-auto           : update
+spring.jpa.open-in-view                 : false
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+#spring.jpa.properties.hibernate.dialect : org.hibernate.dialect.MySQL5Dialect
+spring.jpa.show-sql                     : false
+
+
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+      

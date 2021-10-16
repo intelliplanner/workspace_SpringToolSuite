@@ -1,0 +1,5 @@
+Create soap service =  https://www.youtube.com/watch?v=ceSqN3CWd14&t=1670s
+
+
+
+Consume Soap using SPringBOot:  https://www.youtube.com/watch?v=WJg3NUwq6zU
